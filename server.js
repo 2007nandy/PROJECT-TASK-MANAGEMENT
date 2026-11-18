@@ -9,6 +9,10 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+// Home route
+app.get("/", (req, res) => {
+  res.send("Task Management API is Running!");
+});
 
 // Connect to MongoDB
 mongoose
