@@ -13,7 +13,7 @@ const App = () => {
   // Fetch tasks
   const fetchTasks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/tasks");
+      const response = await axios.get("https://task-management-backend-eebf.onrender.com/tasks");
       setTasks(response.data);
     } catch (err) {
       setError("Could not fetch tasks.");
@@ -34,7 +34,7 @@ const App = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/tasks",
+        "https://task-management-backend-eebf.onrender.com/tasks",
         { title }
       );
 
@@ -53,7 +53,7 @@ const App = () => {
   const updateTaskStatus = async (id, newStatus) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/tasks/${id}`,
+        `https://task-management-backend-eebf.onrender.com/tasks/${id}`,
         { status: newStatus }
       );
 
@@ -74,7 +74,7 @@ const App = () => {
   // Delete a task
   const deleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/tasks/${id}`);
+      await axios.delete(`https://task-management-backend-eebf.onrender.com/tasks/${id}`);
 
       setTasks(tasks.filter((task) => task._id !== id));
       setSuccess("Task deleted successfully!");
